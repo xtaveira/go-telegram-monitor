@@ -1,0 +1,24 @@
+[Unit]
+Description=Go Telegram System Monitor
+After=network.target
+
+[Service]
+# The Type=simple means the service starts immediately
+Type=simple
+
+# Change this to your actual username if it's different
+User=taveira
+
+# The directory where your .env file and binary are located
+WorkingDirectory=/home/taveira/repositories/go-telegram-monitor
+
+# The path to the executable binary we just built
+ExecStart=/home/taveira/repositories/go-telegram-monitor/monitor
+
+# Restart the service automatically if it crashes
+Restart=always
+RestartSec=5
+
+[Install]
+# This ensures the service starts automatically on boot
+WantedBy=multi-user.target
